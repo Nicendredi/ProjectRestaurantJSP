@@ -1,7 +1,7 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -15,8 +15,8 @@ public class DaoArticlesMySql implements DaoArticles {
 
 	@Override
 	public Article findById(Article obj_id) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant-cgi", "root", "root");
+
+		Connection conn = ConnectionMySql.getInstance().getConnection();
 		String sql = "select * from article where idarticle=" + obj_id.getIdArticle();
 
 		Statement st = conn.createStatement();
