@@ -17,7 +17,7 @@ import model.Article;
 /**
  * Servlet implementation class Menu
  */
-@WebServlet("/menu")
+@WebServlet({"/menu", "/menu.jsp"})
 public class Menu extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -49,7 +49,7 @@ public class Menu extends HttpServlet {
 		request.setAttribute("ListArticle", articles);
 		//System.out.println(articles);
 		
-		request.getRequestDispatcher("menu.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/menu.jsp").forward(request, response);
 	}
 
 	/**

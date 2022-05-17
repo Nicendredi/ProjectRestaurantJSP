@@ -83,13 +83,12 @@ public class DaoCommandesMySql implements DaoCommandes {
 
 		Connection conn = ConnectionMySql.getInstance().getConnection();
 
-		String sql = "insert into commandes values (?,?,?,?)";
+		String sql = "insert into commandes (idclient, total, info) values (?,?,?)";
 
 		PreparedStatement ps = conn.prepareStatement(sql);
-		ps.setInt(1, commande.getIdCommande());
-		ps.setInt(2, commande.getIdClient());
-		ps.setInt(3, commande.getTotal());
-		ps.setString(4, commande.getInfo());
+		ps.setInt(1, commande.getIdClient());
+		ps.setInt(2, commande.getTotal());
+		ps.setString(3, commande.getInfo());
 		ps.executeUpdate();
 
 	}

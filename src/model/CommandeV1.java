@@ -63,6 +63,7 @@ public class CommandeV1 implements Commande {
 		this.panier = panier;
 		if (panier != null) {
 			this.info = panier.toString();
+			this.total= panier.getPrixTotal();
 		}
 	}
 

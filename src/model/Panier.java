@@ -1,10 +1,19 @@
 package model;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
 
 public class Panier {
 	private HashMap<Article, Integer> liste_article;
+
+	
+	
+	
+	public Panier() {
+		
+		this.liste_article = new HashMap<Article, Integer>();
+	}
 
 	public void ajouterArticle(Article article, int quantite) {
 		int nouvelle_quantite = quantite;
@@ -15,7 +24,9 @@ public class Panier {
 	}
 
 	public Set<Article> getArticles() {
+		
 		return liste_article.keySet();
+		
 	}
 
 	public int getQuantite(Article article) {
@@ -41,6 +52,7 @@ public class Panier {
 				builder.append(";");
 			}
 			builder.append(liste_article.get(article) + "-"+article.getIdArticle());
+			isFirst = false;
 		}
 		builder.append("]");
 		return builder.toString();

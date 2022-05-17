@@ -45,7 +45,7 @@ public class Test {
 	static void testllientMySql(DaoClientsMySql dc) throws ClassNotFoundException, SQLException {
 
 		// System.out.println(dc.findAll());
-		System.out.println(dc.findById(13));
+		//System.out.println(dc.findById(13));
 
 	}
 
