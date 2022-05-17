@@ -1,6 +1,7 @@
 package srv;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -34,7 +35,16 @@ public class Menu extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		DaoArticles a = new DaoArticlesMySql();
-		List<Article>articles = a.findAll();
+		List<Article> articles = null;
+		try {
+			articles = a.findAll();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		request.setAttribute("ListArticle", articles);
 		
