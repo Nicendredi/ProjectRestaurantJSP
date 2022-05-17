@@ -67,7 +67,6 @@ public class DaoClientsMySql implements DaoClients {
 
 	@Override
 	public void create(Client c1) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
 
 		Connection conn = ConnectionMySql.getInstance().getConnection();
 		String sql = "insert into personnes values (?,?,?,?,?,?,?)";

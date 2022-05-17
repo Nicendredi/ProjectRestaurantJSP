@@ -46,7 +46,6 @@ public class DaoCommandesMySql implements DaoCommandes {
 
 	@Override
 	public List<Commande> findByClient(Client client) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
 
 		ArrayList<Commande> cli = new ArrayList<Commande>();
 		Connection conn = ConnectionMySql.getInstance().getConnection();
@@ -69,7 +68,6 @@ public class DaoCommandesMySql implements DaoCommandes {
 
 	@Override
 	public void create(Commande commande) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
 
 		Connection conn = ConnectionMySql.getInstance().getConnection();
 
