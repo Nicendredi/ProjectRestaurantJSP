@@ -17,14 +17,7 @@ public class Instructions {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Instructions [");
-		if (Instructions != null) {
-			builder.append("Instructions=");
-			builder.append(Instructions);
-		}
-		builder.append("]");
-		return builder.toString();
+		return Instructions;
 	}
 
 }

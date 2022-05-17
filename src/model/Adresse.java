@@ -17,14 +17,7 @@ public class Adresse {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Adresse [");
-		if (adresse != null) {
-			builder.append("adresse=");
-			builder.append(adresse);
-		}
-		builder.append("]");
-		return builder.toString();
+		return adresse;
 	}
 
 }
