@@ -51,7 +51,7 @@ public class DaoArticlesMySql implements DaoArticles {
 			ia.setDescription(rs.getString("descriptions"));
 			ia.setPrix(rs.getInt("prix"));
 			ia.setCategorie(rs.getString("categorie"));
-			ia.setImage(rs.getString("categorie"));
+			ia.setImage(rs.getString("image"));
 			liste.add(ia);
 
 		}
