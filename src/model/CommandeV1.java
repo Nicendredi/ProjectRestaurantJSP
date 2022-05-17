@@ -7,6 +7,16 @@ public class CommandeV1 implements Commande {
 	private int total;
 	private String info;
 
+	public CommandeV1(int idCommande, int idClient, int total, String info) {
+		this.idCommande = idCommande;
+		this.idClient = idClient;
+		this.total = total;
+		this.info = info;
+	}
+
+	public CommandeV1() {
+	}
+
 	@Override
 	public int getIdClient() {
 		return idClient;

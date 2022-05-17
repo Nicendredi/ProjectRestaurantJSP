@@ -17,7 +17,21 @@ public class DaoCommandesMySql implements DaoCommandes {
 	@Override
 	public Commande findById(Commande obj_id) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		Commande cd = null;
+		Connection conn = ConnectionMySql.getInstance().getConnection();
+		String sql = "select * from commandes where idcommande=" + obj_id;
+		Statement st = conn.createStatement();
+		ResultSet rs = st.executeQuery(sql);
+
+		if (rs.next())
+
+			cd = new CommandeV1(rs.getInt("idcommande"),
+					rs.getInt("idclient"),
+					rs.getInt("total"),
+					rs.getString("info"));
+
+		conn.close();
+		return cd;
 	}
 
 	@Override
@@ -71,7 +85,7 @@ public class DaoCommandesMySql implements DaoCommandes {
 
 		Connection conn = ConnectionMySql.getInstance().getConnection();
 
-		String sql = "insert into personnes values (?,?,?,?)";
+		String sql = "insert into commandes values (?,?,?,?)";
 
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setInt(1, commande.getIdCommande());
