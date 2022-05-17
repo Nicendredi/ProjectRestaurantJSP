@@ -47,7 +47,7 @@ public class Menu extends HttpServlet {
 		}
 		
 		request.setAttribute("ListArticle", articles);
-		
+		//System.out.println(articles);
 		
 		request.getRequestDispatcher("menu.jsp").forward(request, response);
 	}
