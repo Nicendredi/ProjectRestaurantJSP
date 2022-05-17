@@ -34,7 +34,6 @@ public class DaoClientsMySql implements DaoClients {
 		c.setAdresse(new Adresse(rs.getString("adress")));
 		c.setInstructions(new Instructions(rs.getString("instruction")));
 
-		conn.close();
 		return c;
 	}
 
@@ -61,13 +60,11 @@ public class DaoClientsMySql implements DaoClients {
 
 		}
 
-		conn.close();
 		return listeClients;
 	}
 
 	@Override
 	public void create(Client c1) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
 
 		Connection conn = ConnectionMySql.getInstance().getConnection();
 		String sql = "insert into personnes values (?,?,?,?,?,?,?)";
@@ -82,7 +79,6 @@ public class DaoClientsMySql implements DaoClients {
 		ps.setString(6, (c1.getInstructions().toString()));
 		ps.executeUpdate();
 
-		conn.close();
 	}
 
 }

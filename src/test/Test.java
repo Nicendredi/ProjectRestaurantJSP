@@ -5,7 +5,10 @@ import java.sql.SQLException;
 import dao.Dao;
 import dao.DaoArticlesMySql;
 import dao.DaoClientsMySql;
+import dao.DaoCommandes;
 import dao.DaoCommandesMySql;
+import model.ArticleV1;
+import model.CommandeV1;
 
 public class Test {
 
@@ -13,40 +16,64 @@ public class Test {
 		// TODO Auto-generated method stub
 		System.out.println("Tout va bien !!!!!!!!!!!!!");
 
-		// testCommandeMySql();
-		testArticleMySql();
-		// testClientMySql();
+		testArticle();
+		// testCommande();
+
+		// testClient();
 	}
 
-	public static void testArticleMySql() throws ClassNotFoundException, SQLException {
+	public static void testArticle() throws ClassNotFoundException, SQLException {
 		DaoArticlesMySql d1 = new DaoArticlesMySql();
-		testFindAllArticle(d1);
+		// testArticleMySql(d1);
 	};
 
-	static void testFindAllArticle(Dao d) throws ClassNotFoundException, SQLException {
+	static void testArticleMySql(Dao d) throws ClassNotFoundException, SQLException {
 
-		System.out.println(d.findAll());
+		// test pour rechercher tout les articles :ok
+		// System.out.println(d.findAll());
+
+		// test pour rechercher par id
+		System.out.println(d.findById(13));
 
 	}
 
-	public static void testClientMySql() throws ClassNotFoundException, SQLException {
+	public static void testClient() throws ClassNotFoundException, SQLException {
 		DaoClientsMySql ds = new DaoClientsMySql();
-		testFindALlCllientMySql(ds);
+		testllientMySql(ds);
 	}
 
-	static void testFindALlCllientMySql(Dao dc) throws ClassNotFoundException, SQLException {
+	static void testllientMySql(DaoClientsMySql dc) throws ClassNotFoundException, SQLException {
 
-		System.out.println(dc.findAll());
+		// System.out.println(dc.findAll());
+		System.out.println(dc.findById(13));
+
 	}
 
-	public static void testCommandeMySql() throws ClassNotFoundException, SQLException {
+	static void testFindcommandeById(Dao dc) throws ClassNotFoundException, SQLException {
+
+		// System.out.println(dc.findAll());
+
+	}
+
+	public static void testCommande() throws ClassNotFoundException, SQLException {
 		DaoCommandesMySql ds = new DaoCommandesMySql();
-		testFindALlCommandeMySql(ds);
+		testCommandeMySql(ds);
 	}
 
-	static void testFindALlCommandeMySql(Dao dc) throws ClassNotFoundException, SQLException {
-
+	static void testCommandeMySql(DaoCommandes dc) throws ClassNotFoundException, SQLException {
+		CommandeV1 commande = new CommandeV1(13, 11, 15, "info");
+		// ClientV1 c1 = new ClientV1(13, 3, 12, "oozc");
+		// test pour tout selectionner ok
 		System.out.println(dc.findAll());
+		// test pour creer OK
+		// dc.create(commande);
+
+		// mauvais parametre je pense
+		// System.out.println(dc.findById(commande));
+
+		// test pour chercher par client mauvais parametre du commande mysql je pense
+		// arefaire avec les bon parametres notamment refaire avec un client
+		// System.out.println(dc.findById(13));
 	}
 
 }

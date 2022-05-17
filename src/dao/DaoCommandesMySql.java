@@ -17,7 +17,20 @@ public class DaoCommandesMySql implements DaoCommandes {
 	@Override
 	public Commande findById(Commande obj_id) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		Commande cd = null;
+		Connection conn = ConnectionMySql.getInstance().getConnection();
+		String sql = "select * from commandes where idcommande=" + obj_id.getIdCommande();
+		Statement st = conn.createStatement();
+		ResultSet rs = st.executeQuery(sql);
+
+		if (rs.next())
+
+			cd = new CommandeV1(rs.getInt("idcommande"),
+					rs.getInt("idclient"),
+					rs.getInt("total"),
+					rs.getString("info"));
+
+		return cd;
 	}
 
 	@Override
@@ -40,17 +53,15 @@ public class DaoCommandesMySql implements DaoCommandes {
 
 		}
 
-		conn.close();
 		return listeCommande;
 	}
 
 	@Override
 	public List<Commande> findByClient(Client client) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
 
 		ArrayList<Commande> cli = new ArrayList<Commande>();
 		Connection conn = ConnectionMySql.getInstance().getConnection();
-		String sql = "select * from commandes where client='" + client + "'";
+		String sql = "select * from commandes where client='" + client.getIdClient() + "'";
 
 		Statement st = conn.createStatement();
 		ResultSet rs = st.executeQuery(sql);
@@ -69,11 +80,10 @@ public class DaoCommandesMySql implements DaoCommandes {
 
 	@Override
 	public void create(Commande commande) throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
 
 		Connection conn = ConnectionMySql.getInstance().getConnection();
 
-		String sql = "insert into personnes values (?,?,?,?)";
+		String sql = "insert into commandes values (?,?,?,?)";
 
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setInt(1, commande.getIdCommande());
@@ -81,8 +91,6 @@ public class DaoCommandesMySql implements DaoCommandes {
 		ps.setInt(3, commande.getTotal());
 		ps.setString(4, commande.getInfo());
 		ps.executeUpdate();
-
-		conn.close();
 
 	}
 
