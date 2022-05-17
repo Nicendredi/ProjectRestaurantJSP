@@ -19,8 +19,7 @@ public class DaoClientsMySql implements DaoClients {
 	@Override
 	public Client findById(Client obj_id) throws ClassNotFoundException, SQLException {
 		Client c = null;
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant-cgi", "root", "28121987");
+		Connection conn = ConnectionMySql.getInstance().getConnection();
 		String sql = "select * from client where idclient=" + obj_id.getIdClient();
 		Statement st = conn.createStatement();
 		ResultSet rs = st.executeQuery(sql);
@@ -42,8 +41,7 @@ public class DaoClientsMySql implements DaoClients {
 	@Override
 	public List<Client> findAll() throws ClassNotFoundException, SQLException {
 		List<Client> listeClients = new ArrayList<Client>();
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant-cgi", "root", "28121987");
+		Connection conn = ConnectionMySql.getInstance().getConnection();
 		String sql = "select * from client";
 
 		Statement st = conn.createStatement();

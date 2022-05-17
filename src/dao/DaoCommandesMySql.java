@@ -23,8 +23,7 @@ public class DaoCommandesMySql implements DaoCommandes {
 	@Override
 	public List<Commande> findAll() throws ClassNotFoundException, SQLException {
 		List<Commande> listeCommande = new ArrayList<Commande>();
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant-cgi", "root", "28121987");
+		Connection conn = ConnectionMySql.getInstance().getConnection();
 		String sql = "select * from commandes";
 
 		Statement st = conn.createStatement();

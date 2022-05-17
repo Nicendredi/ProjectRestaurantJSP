@@ -36,8 +36,8 @@ public class DaoArticlesMySql implements DaoArticles {
 
 	@Override
 	public List<Article> findAll() throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant-cgi", "root", "root");
+
+		Connection conn = ConnectionMySql.getInstance().getConnection();
 		String sql = "select * from article";
 
 		Statement st = conn.createStatement();
