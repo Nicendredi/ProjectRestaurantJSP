@@ -75,7 +75,13 @@ public class DaoClientsMySql implements DaoClients {
 		PreparedStatement ps = conn.prepareStatement(sql);
 
 		ps.setInt(1, c1.getIdClient());
+		ps.setString(2, c1.getPassword());
+		ps.setString(3, c1.getfName());
+		ps.setString(4, c1.getTelephone().toString());
+		ps.setString(5, (c1.getAdresse().toString()));
+		ps.setString(6, (c1.getInstructions().toString()));
 		ps.executeUpdate();
+
 		conn.close();
 	}
 
