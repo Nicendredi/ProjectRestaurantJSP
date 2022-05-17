@@ -21,4 +21,28 @@ public class Panier {
 	public int getQuantite(Article article) {
 		return liste_article.get(article);
 	}
+	
+	public int getPrixTotal() {
+		int total = 0;
+		Set<Article> clefs = liste_article.keySet();
+		for (Article article : clefs) {
+			total += article.getPrix() * liste_article.get(article);
+		}
+		return total;
+	}
+	
+	public String toString() {
+		boolean isFirst = true;
+		Set<Article> clefs = liste_article.keySet();
+		StringBuilder builder = new StringBuilder();
+		builder.append("[");
+		for (Article article : clefs) {
+			if (!isFirst) {
+				builder.append(";");
+			}
+			builder.append(liste_article.get(article) + "-"+article.getIdArticle());
+		}
+		builder.append("]");
+		return builder.toString();
+	}
 }

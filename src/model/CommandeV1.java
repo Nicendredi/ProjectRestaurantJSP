@@ -6,6 +6,7 @@ public class CommandeV1 implements Commande {
 	private int idClient;
 	private int total;
 	private String info;
+	private Panier panier;
 
 	public CommandeV1(int idCommande, int idClient, int total, String info) {
 		this.idCommande = idCommande;
@@ -20,31 +21,14 @@ public class CommandeV1 implements Commande {
 	@Override
 	public int getIdClient() {
 		return idClient;
-
-	}
-
-	@Override
-	public void ajouterArticle(Article a, int quantite) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public int getPrixTotal() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void supprimerArticle(Article a, int quantite) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void supprimerArticle(Article a) {
-		// TODO Auto-generated method stub
-
+		if (panier == null) {
+			return 0;
+		}
+		return panier.getPrixTotal();
 	}
 
 	public int getIdCommande() {
@@ -73,6 +57,13 @@ public class CommandeV1 implements Commande {
 
 	public void setInfo(String info) {
 		this.info = info;
+	}
+
+	public void setPanier(Panier panier) {
+		this.panier = panier;
+		if (panier != null) {
+			this.info = panier.toString();
+		}
 	}
 
 	@Override
