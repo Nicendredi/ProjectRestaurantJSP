@@ -2,14 +2,7 @@ package model;
 
 public interface LigneCommande {
 
-	public void ajouter(int quantite){
-
-ArticleV1 a1 = new ArticleV1();
-
-a1.getIdArticle();
-
-		
-	};
+	public void ajouter(int quantite);
 
 	/*
 	 * [V1.5] Réduit la quantité de l'article

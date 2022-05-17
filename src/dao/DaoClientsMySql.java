@@ -34,7 +34,6 @@ public class DaoClientsMySql implements DaoClients {
 		c.setAdresse(new Adresse(rs.getString("adress")));
 		c.setInstructions(new Instructions(rs.getString("instruction")));
 
-		conn.close();
 		return c;
 	}
 
@@ -61,7 +60,6 @@ public class DaoClientsMySql implements DaoClients {
 
 		}
 
-		conn.close();
 		return listeClients;
 	}
 
@@ -81,7 +79,6 @@ public class DaoClientsMySql implements DaoClients {
 		ps.setString(6, (c1.getInstructions().toString()));
 		ps.executeUpdate();
 
-		conn.close();
 	}
 
 }

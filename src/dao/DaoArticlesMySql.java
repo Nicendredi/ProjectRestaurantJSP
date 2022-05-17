@@ -31,7 +31,6 @@ public class DaoArticlesMySql implements DaoArticles {
 			a.setImage(rs.getString("image"));
 		}
 
-		conn.close();
 		return a;
 	}
 
@@ -56,7 +55,6 @@ public class DaoArticlesMySql implements DaoArticles {
 
 		}
 
-		conn.close();
 		return liste;
 	}
 

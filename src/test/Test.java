@@ -7,6 +7,7 @@ import dao.DaoArticlesMySql;
 import dao.DaoClientsMySql;
 import dao.DaoCommandes;
 import dao.DaoCommandesMySql;
+import model.ArticleV1;
 import model.CommandeV1;
 
 public class Test {
@@ -15,25 +16,24 @@ public class Test {
 		// TODO Auto-generated method stub
 		System.out.println("Tout va bien !!!!!!!!!!!!!");
 
-		// testArticle();
+		testArticle();
 		// testCommande();
 
-		testClient();
+		// testClient();
 	}
 
 	public static void testArticle() throws ClassNotFoundException, SQLException {
 		DaoArticlesMySql d1 = new DaoArticlesMySql();
-		testArticleMySql(d1);
+		// testArticleMySql(d1);
 	};
 
 	static void testArticleMySql(Dao d) throws ClassNotFoundException, SQLException {
 
-		// ArticleV1 a1 = new ArticleV1(2, "bruschetta", 5, "entrée");
 		// test pour rechercher tout les articles :ok
-		System.out.println(d.findAll());
+		// System.out.println(d.findAll());
 
-		// test pour rechercher par id problme de parametre a refaire je pense
-		// System.out.println(d.findById(a1));
+		// test pour rechercher par id
+		System.out.println(d.findById(13));
 
 	}
 
@@ -42,10 +42,10 @@ public class Test {
 		testllientMySql(ds);
 	}
 
-	static void testllientMySql(Dao dc) throws ClassNotFoundException, SQLException {
+	static void testllientMySql(DaoClientsMySql dc) throws ClassNotFoundException, SQLException {
 
-		System.out.println(dc.findAll());
-		// System.out.println(dc.findById(obj_id));
+		// System.out.println(dc.findAll());
+		System.out.println(dc.findById(13));
 
 	}
 
@@ -73,7 +73,7 @@ public class Test {
 
 		// test pour chercher par client mauvais parametre du commande mysql je pense
 		// arefaire avec les bon parametres notamment refaire avec un client
-		// System.out.println(dc.findByClient(c1));
+		// System.out.println(dc.findById(13));
 	}
 
 }

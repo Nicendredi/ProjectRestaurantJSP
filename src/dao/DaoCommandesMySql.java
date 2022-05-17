@@ -19,7 +19,7 @@ public class DaoCommandesMySql implements DaoCommandes {
 		// TODO Auto-generated method stub
 		Commande cd = null;
 		Connection conn = ConnectionMySql.getInstance().getConnection();
-		String sql = "select * from commandes where idcommande=" + obj_id;
+		String sql = "select * from commandes where idcommande=" + obj_id.getIdCommande();
 		Statement st = conn.createStatement();
 		ResultSet rs = st.executeQuery(sql);
 
@@ -30,7 +30,6 @@ public class DaoCommandesMySql implements DaoCommandes {
 					rs.getInt("total"),
 					rs.getString("info"));
 
-		conn.close();
 		return cd;
 	}
 
@@ -54,7 +53,6 @@ public class DaoCommandesMySql implements DaoCommandes {
 
 		}
 
-		conn.close();
 		return listeCommande;
 	}
 
@@ -63,7 +61,7 @@ public class DaoCommandesMySql implements DaoCommandes {
 
 		ArrayList<Commande> cli = new ArrayList<Commande>();
 		Connection conn = ConnectionMySql.getInstance().getConnection();
-		String sql = "select * from commandes where client='" + client + "'";
+		String sql = "select * from commandes where client='" + client.getIdClient() + "'";
 
 		Statement st = conn.createStatement();
 		ResultSet rs = st.executeQuery(sql);
@@ -93,8 +91,6 @@ public class DaoCommandesMySql implements DaoCommandes {
 		ps.setInt(3, commande.getTotal());
 		ps.setString(4, commande.getInfo());
 		ps.executeUpdate();
-
-		conn.close();
 
 	}
 
