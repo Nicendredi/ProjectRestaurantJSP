@@ -11,13 +11,13 @@ public class ConnectionMySql {
 
     private ConnectionMySql() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        this.con = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant-cgi", "root", "28121987");
+        this.con = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant-cgi", "root", "root");
         ;
     }
 
     public static ConnectionMySql getInstance() throws ClassNotFoundException, SQLException {
 
-        if (instance != null) {
+        if (instance == null) {
             instance = new ConnectionMySql();
         }
 
