@@ -8,10 +8,19 @@ public class ArticleV1 implements Article {
 	private int prix;
 	private String image;
 
+	
 	@Override
 	public String toString() {
-		return "ImplementArticle [ categorie=" + categorie + ", description=" + description + ", idArticle=" + idArticle
-				+ ", prix=" + prix + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("idArticle=");
+		builder.append(idArticle);
+		builder.append(", categorie=");
+		builder.append(categorie);
+		builder.append(", description=");
+		builder.append(description);
+		builder.append(", prix=");
+		builder.append(prix);
+		return builder.toString();
 	}
 
 	public int getIdArticle() {
