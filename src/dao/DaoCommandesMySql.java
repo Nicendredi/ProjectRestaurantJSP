@@ -47,8 +47,6 @@ public class DaoCommandesMySql implements DaoCommandes {
 	public List<Commande> findByClient(Client client) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 
-ArrayList<Client> client = new ArrayList<Client>() 
-
 
 		return null;
 	}
