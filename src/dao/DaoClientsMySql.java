@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -65,9 +66,17 @@ public class DaoClientsMySql implements DaoClients {
 	}
 
 	@Override
-	public void create() {
+	public void create(Client c1) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 
+		Connection conn = ConnectionMySql.getInstance().getConnection();
+		String sql = "insert into personnes values (?,?,?,?,?,?,?)";
+
+		PreparedStatement ps = conn.prepareStatement(sql);
+
+		ps.setInt(1, c1.getIdClient());
+		ps.executeUpdate();
+		conn.close();
 	}
 
 }
