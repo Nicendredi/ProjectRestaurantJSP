@@ -28,6 +28,7 @@ public class DaoArticlesMySql implements DaoArticles {
 			a.setDescription(rs.getString("descriptions"));
 			a.setPrix(rs.getInt("prix"));
 			a.setCategorie(rs.getString("categorie"));
+			a.setImage(rs.getString("image"));
 		}
 
 		conn.close();
@@ -36,9 +37,9 @@ public class DaoArticlesMySql implements DaoArticles {
 
 	@Override
 	public List<Article> findAll() throws ClassNotFoundException, SQLException {
-		
+
 		Connection conn = ConnectionMySql.getInstance().getConnection();
-		
+
 		String sql = "select * from article";
 
 		Statement st = conn.createStatement();
@@ -50,6 +51,7 @@ public class DaoArticlesMySql implements DaoArticles {
 			ia.setDescription(rs.getString("descriptions"));
 			ia.setPrix(rs.getInt("prix"));
 			ia.setCategorie(rs.getString("categorie"));
+			ia.setImage(rs.getString("categorie"));
 			liste.add(ia);
 
 		}

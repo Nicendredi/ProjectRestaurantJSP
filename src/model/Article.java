@@ -17,6 +17,10 @@ public interface Article {
 
 	public int getPrix();
 
+	public String getImage();
+
+	public void setImage(String image);
+
 	public String toString();
 
 }

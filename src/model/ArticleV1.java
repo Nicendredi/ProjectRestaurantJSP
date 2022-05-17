@@ -1,17 +1,17 @@
 package model;
 
 public class ArticleV1 implements Article {
+
 	private int idArticle;
 	private String categorie;
 	private String description;
 	private int prix;
+	private String image;
 
-	public String getCategorie() {
-		return categorie;
-	}
-
-	public void setCategorie(String categorie) {
-		this.categorie = categorie;
+	@Override
+	public String toString() {
+		return "ImplementArticle [ categorie=" + categorie + ", description=" + description + ", idArticle=" + idArticle
+				+ ", prix=" + prix + "]";
 	}
 
 	public int getIdArticle() {
@@ -22,8 +22,12 @@ public class ArticleV1 implements Article {
 		this.idArticle = idArticle;
 	}
 
-	public void setPrix(int prix) {
-		this.prix = prix;
+	public String getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(String categorie) {
+		this.categorie = categorie;
 	}
 
 	public String getDescription() {
@@ -38,10 +42,16 @@ public class ArticleV1 implements Article {
 		return prix;
 	}
 
-	@Override
-	public String toString() {
-		return "ImplementArticle [ categorie=" + categorie + ", description=" + description + ", idArticle=" + idArticle
-				+ ", prix=" + prix + "]";
+	public void setPrix(int prix) {
+		this.prix = prix;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 }
