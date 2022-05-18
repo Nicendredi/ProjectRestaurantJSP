@@ -49,5 +49,7 @@
 	
 	<%@include file="includes/footer.jsp" %>
 
+<%@include file ="includes/header.jsp" %>
+
 </body>
 </html>
