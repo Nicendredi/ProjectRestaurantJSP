@@ -54,7 +54,7 @@ public class PanierValidation extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		request.getRequestDispatcher("menu").forward(request, response);
+		request.getRequestDispatcher("/confirmationcommande.jsp").forward(request, response);
 	}
 
 	/**
