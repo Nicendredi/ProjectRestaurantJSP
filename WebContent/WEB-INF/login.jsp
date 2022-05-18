@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+
 	<%
 	if ((boolean) request.getAttribute("errorLogin")) {
 		out.print("<p>Erreur de connexion. Veuillez réessayer.</p>");

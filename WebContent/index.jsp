@@ -8,5 +8,7 @@
 </head>
 <body>
 
+<%@include file ="includes/header.jsp" %>
+
 </body>
 </html>
