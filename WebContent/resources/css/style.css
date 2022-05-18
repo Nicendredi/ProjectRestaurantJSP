@@ -4,33 +4,54 @@
   margin: 0;
   padding: 0;
 }
-
+/* index.html */
 .image-acceuil{
 
     width: 100vw;
     height: 50vh;
 }
+.pizza{
 
-
-.pizza-header{
-
+    background: url(/WebContent/resources/images/pizza-acceuil.jpg);
     width: 100vw;
-    height: 10vh;
-    filter: blur(4px);
+    height: 25vh;
+
 }
+.titre-pizza{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: aliceblue;
+    padding-top: 7%;
+
+}
+.pizzaH1{
+
+    background-color: rgb(35, 135, 35);
+    padding: 1% ;
+    border-radius: 15px;
+}
+
 
 
 .carousel-item{
 
     height: 40vh;
-
-}
-.carousel-image{
-
     
-    height: 40vh;
-
-
 }
+
+
+
+.d-block{
+    object-fit: cover;
+}
+
+/* 
+menu.html */
+
+
+
+
+
 
 
