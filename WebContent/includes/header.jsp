@@ -3,9 +3,8 @@
 <div class="header">
   <img
     class="pizza-header"
-    src="./pizza-mixte-divers-ingredients_140725-3790.webp"
+    src="resources/images/pizza.jpg"
     alt=""
-    srcset=""
   />
   <ul class="nav justify-content-center">
     <li class="nav-item">

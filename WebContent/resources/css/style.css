@@ -27,10 +27,71 @@
 }
 .carousel-image{
 
-    
+
     height: 40vh;
 
 
 }
 
+/* MENU */
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
+.card {
+    margin: 25px;
+}
+
+.card-img-top {
+    height: 200px;
+}
+
+.menu_h2 {
+    display: flex;
+    justify-content: center;
+    background-color: green;
+    padding: 15px;
+    color: white;
+    align-items: center;
+}
+
+/* MENUCOMMANDE */
+
+.menucommande {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* PANIER */
+
+.panier {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CONFIRMATIONCOMMANDE */
+.confirmationcommande {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* LOGIN */
+.login {
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

@@ -5,7 +5,7 @@
 <%@include file="includes/head.jsp" %>
 <body>
 	<%@include file="includes/header.jsp" %>
-	
+
 	<!-- Center -->
     <div class="image-acceuil">
       <div
@@ -15,13 +15,13 @@
       >
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="..." class="d-block w-100" alt="..." />
+            <img src="resources/images/bruschetta.jpg" class="d-block w-100" alt="..." />
           </div>
           <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="..." />
+            <img src="resources/images/carpaccio.jpg" class="d-block w-100" alt="..." />
           </div>
           <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="..." />
+            <img src="resources/images/glace.jpg" class="d-block w-100" alt="..." />
           </div>
         </div>
         <button
@@ -46,10 +46,7 @@
     </div>
 
     <!-- Center -->
-	
+
 	<%@include file="includes/footer.jsp" %>
-
-<%@include file ="includes/header.jsp" %>
-
 </body>
 </html>

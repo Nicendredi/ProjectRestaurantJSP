@@ -3,12 +3,11 @@ package test;
 import java.sql.SQLException;
 
 import dao.Dao;
-import dao.DaoArticlesMySql;
 import dao.DaoClientsMySql;
 import dao.DaoCommandes;
 import dao.DaoCommandesMySql;
-import model.ArticleV1;
-import model.CommandeV1;
+import model.Article;
+import model.Commande;
 
 public class Test {
 
@@ -23,17 +22,17 @@ public class Test {
 	}
 
 	public static void testArticle() throws ClassNotFoundException, SQLException {
-		DaoArticlesMySql d1 = new DaoArticlesMySql();
+		// DaoArticlesMySql d1 = new DaoArticlesMySql();
 		// testArticleMySql(d1);
 	};
 
-	static void testArticleMySql(Dao d) throws ClassNotFoundException, SQLException {
+	static void testArticleMySql(Dao<Article> d) throws ClassNotFoundException, SQLException {
 
 		// test pour rechercher tout les articles :ok
 		// System.out.println(d.findAll());
 
 		// test pour rechercher par id
-		System.out.println(d.findById(13));
+		// System.out.println(d.findById(13));
 
 	}
 
@@ -49,7 +48,7 @@ public class Test {
 
 	}
 
-	static void testFindcommandeById(Dao dc) throws ClassNotFoundException, SQLException {
+	static void testFindcommandeById(Dao<Commande> dc) throws ClassNotFoundException, SQLException {
 
 		// System.out.println(dc.findAll());
 
@@ -61,7 +60,7 @@ public class Test {
 	}
 
 	static void testCommandeMySql(DaoCommandes dc) throws ClassNotFoundException, SQLException {
-		CommandeV1 commande = new CommandeV1(13, 11, 15, "info");
+		// CommandeV1 commande = new CommandeV1(13, 11, 15, "info");
 		// ClientV1 c1 = new ClientV1(13, 3, 12, "oozc");
 		// test pour tout selectionner ok
 		System.out.println(dc.findAll());

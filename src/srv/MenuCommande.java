@@ -15,6 +15,8 @@ import dao.DaoArticlesMySql;
 import model.Article;
 import model.Panier;
 
+
+
 /**
  * Servlet implementation class Commande
  */
@@ -56,7 +58,7 @@ public class MenuCommande extends HttpServlet {
 		// Panier p = (Panier) request.getSession().getAttribute("Panier");
 		// System.out.println(p.getArticles());
 
-		System.out.println(request.getSession().getAttribute("loggedIn"));
+		// System.out.println(request.getSession().getAttribute("loggedIn"));
 		String destination = "/login";
 		if ((boolean) request.getSession().getAttribute("loggedIn")) {
 			destination = "WEB-INF/menucommande.jsp";
