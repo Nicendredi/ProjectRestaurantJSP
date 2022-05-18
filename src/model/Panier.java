@@ -1,17 +1,16 @@
 package model;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Set;
 
 public class Panier {
 	private HashMap<Article, Integer> liste_article;
 
-	
-	
-	
+
+
+
 	public Panier() {
-		
+
 		this.liste_article = new HashMap<Article, Integer>();
 	}
 
@@ -24,15 +23,15 @@ public class Panier {
 	}
 
 	public Set<Article> getArticles() {
-		
+
 		return liste_article.keySet();
-		
+
 	}
 
 	public int getQuantite(Article article) {
 		return liste_article.get(article);
 	}
-	
+
 	public int getPrixTotal() {
 		int total = 0;
 		Set<Article> clefs = liste_article.keySet();
@@ -41,7 +40,7 @@ public class Panier {
 		}
 		return total;
 	}
-	
+
 	public String toString() {
 		boolean isFirst = true;
 		Set<Article> clefs = liste_article.keySet();
