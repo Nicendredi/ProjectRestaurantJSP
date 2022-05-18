@@ -1,3 +1,4 @@
+<%@page import="model.Client"%>
 <%@page import="java.util.Set"%>
 <%@page import="model.Panier"%>
 <%@page import="java.util.List"%>
@@ -12,6 +13,7 @@
 </head>
 <body>
 	<% List<Article> articles = (List<Article>) session.getAttribute("ListArticle"); %>
+	<% Client client = (Client) session.getAttribute("client"); %>
 	<% Panier p = (Panier) session.getAttribute("Panier"); 
 	
 	Set<Article> listeArticles = p.getArticles(); 
@@ -22,7 +24,7 @@
 	}
 	%>
 	
-	<p>Félicitation "" ""</p>
+	<p>Félicitation<%=client.getfName() + " " + client.getName()%></p>
 	<p>Votre commande est validée</p>
 	<p>Le montant total est de <%=totalPrice %></p>
 </body>
