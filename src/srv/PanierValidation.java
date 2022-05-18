@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.DaoCommandes;
 import dao.DaoCommandesMySql;
+import model.Client;
 import model.Commande;
 import model.CommandeV1;
 import model.Panier;
@@ -36,10 +37,13 @@ public class PanierValidation extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Panier p = (Panier) request.getSession().getAttribute("Panier");
+		Client c = (Client) request.getSession().getAttribute("client");
+		int idClient = c.getIdClient();
 		
 		DaoCommandes daocommande = new DaoCommandesMySql();
 		Commande commande = new CommandeV1();
 		commande.setPanier(p);
+		commande.setIdClient(idClient);
 		try {
 			daocommande.create(commande);
 		} catch (ClassNotFoundException e) {

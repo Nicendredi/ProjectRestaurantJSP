@@ -1,3 +1,4 @@
+<%@page import="model.Client"%>
 <%@page import="java.util.Set"%>
 <%@page import="model.Panier"%>
 <%@page import="model.Article"%>
@@ -12,22 +13,18 @@
 </head>
 <body>
 <% List<Article> articles = (List<Article>) session.getAttribute("ListArticle"); %>
+<% Client client = (Client) session.getAttribute("client"); %>
 <% Panier p = (Panier) session.getAttribute("Panier"); 
-	
+	int totalPrice = p.getPrixTotal();
 	Set<Article> listeArticles = p.getArticles(); 
-	
-	int totalPrice = 0;
-	for (Article a : listeArticles) {
-		totalPrice +=(a.getPrix()*(p.getQuantite(a)));
-	}
 %>
 
 <h1>Fais ton repas</h1>
-<p>La commande de """" d'un total de <%=totalPrice%></p>
+<p>La commande de <%=client.getfName() + " " + client.getName()%> d'un total de <%=totalPrice%></p>
 
 <p>Fais ton choix parmi nos plats</p>
 
-	<form action="ajout_article_panier" method="get">
+	<form action="<%=request.getContextPath()%>/ajout_article_panier" method="get">
 		<select name="articleChoice" id="articleChoice">
 			<%
 				for (Article a : articles) {
@@ -38,7 +35,7 @@
 			%>
 		</select> <label for="quantity">Quantity:</label> 
 		<input type="number" id="quantity" name="quantity" value="1" min="1" max="5">
-		<input type="submit" value="Ajouter au panier"></input>
+		<input type="submit" value="Ajouter au panier">
 	</form>
 	
 	<ul>

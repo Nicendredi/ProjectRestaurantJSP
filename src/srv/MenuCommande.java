@@ -18,50 +18,58 @@ import model.Panier;
 /**
  * Servlet implementation class Commande
  */
-@WebServlet({"/menucommande"})
+@WebServlet({ "/menucommande" })
 public class MenuCommande extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MenuCommande() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//Récupération des articles
+	public MenuCommande() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// Récupération des articles
 		DaoArticles a = new DaoArticlesMySql();
 		List<Article> articles = null;
 		try {
 			articles = a.findAll();
-			
+
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		if(request.getSession().getAttribute("ListArticle")== null)
+
+		if (request.getSession().getAttribute("ListArticle") == null)
 			request.getSession().setAttribute("ListArticle", articles);
-		if(request.getSession().getAttribute("Panier")== null)
+		if (request.getSession().getAttribute("Panier") == null)
 			request.getSession().setAttribute("Panier", new Panier());
-//		Panier p = (Panier) request.getSession().getAttribute("Panier");
-//		System.out.println(p.getArticles());
-		
-		//création du panier
-		
-		request.getRequestDispatcher("menucommande.jsp").forward(request, response);
+		// création du panier
+		// Panier p = (Panier) request.getSession().getAttribute("Panier");
+		// System.out.println(p.getArticles());
+
+		System.out.println(request.getSession().getAttribute("loggedIn"));
+		String destination = "/login";
+		if ((boolean) request.getSession().getAttribute("loggedIn")) {
+			destination = "WEB-INF/menucommande.jsp";
+		}
+		request.getRequestDispatcher(destination).forward(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
