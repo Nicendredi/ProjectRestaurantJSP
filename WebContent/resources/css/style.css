@@ -12,7 +12,7 @@
 }
 .pizza{
 
-    background: url(/WebContent/resources/images/pizza-acceuil.jpg);
+    background: url(../../resources/images/pizza-acceuil.jpg);
     width: 100vw;
     height: 25vh;
 
@@ -37,7 +37,7 @@
 .carousel-item{
 
     height: 40vh;
-    
+
 }
 
 

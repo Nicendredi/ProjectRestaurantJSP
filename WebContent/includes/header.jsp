@@ -1,11 +1,10 @@
 
 <!-- Header -->
-<div class="header">
-  <img
-    class="pizza-header"
-    src="resources/images/pizza.jpg"
-    alt=""
-  />
+<div class="header"><div class="pizza">
+  <div class="titre-pizza">
+    <h1 class="pizzaH1">Pizzeria Groupe 1</h1>
+  </div>
+</div>
   <ul class="nav justify-content-center">
     <li class="nav-item">
       <a class="nav-link" href="<%=request.getContextPath()%>/">Accueil</a>
