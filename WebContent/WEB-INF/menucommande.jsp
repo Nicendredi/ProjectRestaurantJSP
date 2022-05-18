@@ -7,25 +7,23 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
+<%@include file="../includes/head.jsp" %>
 <body>
+<%@include file="../includes/header.jsp" %>
 <% List<Article> articles = (List<Article>) session.getAttribute("ListArticle"); %>
 <% Client client = (Client) session.getAttribute("client"); %>
 <% Panier p = (Panier) session.getAttribute("Panier"); 
 	int totalPrice = p.getPrixTotal();
 	Set<Article> listeArticles = p.getArticles(); 
 %>
-
+<div class="menucommande">
 <h1>Fais ton repas</h1>
 <p>La commande de <%=client.getfName() + " " + client.getName()%> d'un total de <%=totalPrice%></p>
 
 <p>Fais ton choix parmi nos plats</p>
 
 	<form action="<%=request.getContextPath()%>/ajout_article_panier" method="get">
-		<select name="articleChoice" id="articleChoice">
+		<select class="form-select" name="articleChoice" id="articleChoice">
 			<%
 				for (Article a : articles) {
 			%>
@@ -51,6 +49,7 @@
 	<form action="<%=request.getContextPath()%>/panier.jsp" method="post">
 		<input type="submit" value="Voir panier"></input>
 	</form>
-
+</div>
+<%@include file="../includes/footer.jsp" %>
 </body>
 </html>
